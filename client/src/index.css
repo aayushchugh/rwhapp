@@ -1,0 +1,81 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+video {  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.form_wrap {
+  background-color: rgba(255, 255, 255, 0.5);
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+@media only screen and (min-width: 960px) {
+  .form_wrap {
+    width: 400px;
+  }
+}
+.form_container {
+  margin: auto;
+  width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+  .form_container {
+    width: 400px;
+  }
+}
+
+.form_title {
+  margin: 1rem;
+  text-align: center;
+}
+
+.form_control {
+  margin: 1rem;
+}
+
+.form_footer,
+.form_footer_errors {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.iframe_container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+}
+.iframe_container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+.text_error {
+  color: red;
+}
