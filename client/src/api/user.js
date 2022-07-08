@@ -18,23 +18,27 @@ export const login = async ({email, password} = {}) => {
     }
 }
 
-export const logout = () => {
-    console.log("do the logout");
-    const res = {};
-    res.message = "fake logout message";
-    return res;
+export const logout = async () => {
+    try {
+        const res = await fetch('http://localhost:3001/api/v1/users/logout', {
+            method: 'GET',
+            credentials: "include"
+        });
+        return res.json();
+    } catch (error) {
+        return res.json(error);
+    }
 }
 
 export const getUser = async () => {
     try {
         const res = await fetch('http://localhost:3001/api/v1/users/me', {
-            method: 'Get',
+            method: 'GET',
             credentials: "include"
         });
         return res.json();
     } catch (error) {
-        console.log(error);
-        return res.json();
+        return res.json(error);
     }
 }
 

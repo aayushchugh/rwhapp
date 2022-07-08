@@ -29,11 +29,9 @@ export const register = async (req, res) => {
     
 }
 
-export const getMe = async (req, res) => {
-    //console.log(req.user._id);
+export const getMe = async (req, res) => {  
     const userID = req.user._id;
-    //const user = await User.findOne({ email });
-    //console.log(user)
+    console.log(userID);
     if(!userID) {
         return res.json({
             status: "error", message: "Please signin" 

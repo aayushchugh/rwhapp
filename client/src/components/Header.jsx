@@ -14,10 +14,9 @@ const Header = () => {
   const history = useNavigate();
   const {user, setUser} = useContext(UserContext);
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    const res = logout();
-    console.log(res);
+    const res = await logout();
     toast.success(res.message);
     setUser(null);
     history("/", { replace: true });
