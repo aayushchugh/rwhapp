@@ -29,6 +29,21 @@ export const register = async (req, res) => {
     
 }
 
+export const getMe = async (req, res) => {
+    //console.log(req.user._id);
+    const userID = req.user._id;
+    //const user = await User.findOne({ email });
+    //console.log(user)
+    if(!userID) {
+        return res.json({
+            status: "error", message: "Please signin" 
+        });
+    }
+    return res.json({
+        status: "ok", message: "Logged In", userID 
+    });
+}
+
 export const login = async (req, res) => {
     const { email, password } = req.body;
   

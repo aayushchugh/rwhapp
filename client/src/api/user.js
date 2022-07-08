@@ -25,6 +25,19 @@ export const logout = () => {
     return res;
 }
 
+export const getUser = async () => {
+    try {
+        const res = await fetch('http://localhost:3001/api/v1/users/me', {
+            method: 'Get',
+            credentials: "include"
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+        return res.json();
+    }
+}
+
 export const register = async ({email, password, passwordConfirmation} = {}) => {
     const user = {email, password, passwordConfirmation};
     try {

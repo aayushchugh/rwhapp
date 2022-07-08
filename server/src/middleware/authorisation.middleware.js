@@ -10,14 +10,14 @@ const authorisation = async (req, res, next) => {
     } 
 
     if (!token) {
-        res.json({status: "error", message: err});
+        return res.json({status: "error", message: "Please Signin"});
     }
 
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
     const currentUser = await User.findById(decoded.id);
     if (!currentUser) {
-        res.json({status: "error", message: err});
+        return res.json({status: "error", message: "Please signin"});
     }
 
     req.user = currentUser;
