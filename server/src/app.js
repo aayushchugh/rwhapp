@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 /* LOAD MIDDLEWEAR */
-app.use(cors({origin: true, credentials: true}));
+app.use(cors({origin: "*", credentials: true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan(':status :method :url'));

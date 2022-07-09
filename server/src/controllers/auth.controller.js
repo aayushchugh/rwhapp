@@ -30,8 +30,10 @@ export const register = async (req, res) => {
 }
 
 export const getMe = async (req, res) => {  
+    console.log(req.locals);
+    console.log(req.user);
     const userID = req.user._id;
-    console.log(userID);
+    
     if(!userID) {
         return res.json({
             status: "error", message: "Please signin" 
