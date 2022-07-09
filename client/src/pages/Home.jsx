@@ -29,26 +29,21 @@ const Home = () => {
 								fullWidth
 								variant='contained'
 								size='large'
-								href='/login'
 								margin='normal'
 								sx={{ mt: 2, mb: 1 }}
 							>
-								Login
+								<Link to='/login'>Login</Link>
 							</Button>
 							<Button
 								type='submit'
 								fullWidth
 								variant='contained'
 								size='large'
-								href='/register'
 								margin='normal'
 								sx={{ mt: 2, mb: 1 }}
 							>
-								Register
+								<Link to='/register'>register</Link>
 							</Button>
-
-							{/* <Link to='/login'>Login</Link>
-							<Link to='/register'>register</Link> */}
 						</div>
 					) : (
 						<div className='form_control'>
@@ -57,11 +52,10 @@ const Home = () => {
 								fullWidth
 								variant='contained'
 								size='large'
-								href='/dashboard'
 								margin='normal'
 								sx={{ mt: 2, mb: 1 }}
 							>
-								Dashboard
+								<Link to='/dashboard'>Dashboard</Link>
 							</Button>
 							<Button
 								type='submit'
