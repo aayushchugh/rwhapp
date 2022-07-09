@@ -30,8 +30,7 @@ export const register = async (req, res) => {
 }
 
 export const getMe = async (req, res) => {  
-    console.log(req.locals);
-    console.log(req.user);
+    
     const userID = req.user._id;
     
     if(!userID) {
@@ -71,11 +70,13 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.cookie('jwt', 'loggedout', {
-        expires: 36000000,
-        httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
-    });
+    res.clearCookie('token').json({
+        status: 'ok',
+        success: true,
+        message: 'User logged out successfully',
+        data: {},
+    }); 
+    
 
     return res.json({ status: 'ok', message: "Logout Successful" });
 }

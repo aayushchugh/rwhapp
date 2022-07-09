@@ -7,10 +7,10 @@ const router = express.Router();
 
 //router.use(verifyJWT);
 
-router.use( (req, res, next) => {
-    console.log(req.headers);
-    next();
-})
+// router.use( (req, res, next) => {
+//     console.log(req.headers);
+//     next();
+// })
 
 router.post('/register', register);
 router.post('/login', login);

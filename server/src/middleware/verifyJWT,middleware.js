@@ -10,7 +10,7 @@ const verifyJWT = async (req, res, next) => {
     } else {
         token = req.cookies.jwt;
     }
-    console.log(token);
+    
     if (!token) {
         next();
     }
@@ -24,7 +24,7 @@ const verifyJWT = async (req, res, next) => {
 
     req.user = currentUser;
     res.locals.user = currentUser;
-    console.log(currentUser);
+   
     next();
 };
 
