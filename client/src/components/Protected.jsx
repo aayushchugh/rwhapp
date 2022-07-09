@@ -1,9 +1,15 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {useEffect} from 'react';
 
 const Protected = ({ isLoggedIn, children }) => {
-    if (!isLoggedIn) {
-    return <Navigate to="/" replace />;
+const navigate  = useNavigate();
+
+useEffect(() => {
+  if (!isLoggedIn) {
+  navigate('/')
     }
+})
+
     return children;
    };
 

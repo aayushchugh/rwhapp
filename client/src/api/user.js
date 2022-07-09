@@ -3,7 +3,7 @@ export const login = async ({email, password} = {}) => {
     try {
         const res = await fetch('http://localhost:3001/api/v1/users/login', {
             method: 'POST',
-            /*credentials: "include",*/
+            credentials: "include",
             headers: {
                 Accept: 'application/json',
                 "content-type": 'application/json'
@@ -22,7 +22,11 @@ export const logout = async () => {
     try {
         const res = await fetch('http://localhost:3001/api/v1/users/logout', {
             method: 'GET',
-            credentials: "include"
+            credentials: "include",
+            headers: {
+                Accept: 'application/json',
+                "content-type": 'application/json'
+            },
         });
         return res.json();
     } catch (error) {
@@ -34,13 +38,21 @@ export const getUser = async () => {
     try {
         const res = await fetch('http://localhost:3001/api/v1/users/me', {
             method: 'GET',
-            credentials: "include"
+            credentials: "include",
+            headers: {
+                Accept: 'application/json',
+                "content-type": 'application/json'
+            },
+
         });
+        
         return res.json();
     } catch (error) {
         return res.json(error);
     }
+
 }
+    
 
 export const register = async ({email, password, passwordConfirmation} = {}) => {
     const user = {email, password, passwordConfirmation};
@@ -67,7 +79,7 @@ export const forgotPassword = async ({email} = {}) => {
     try {
         const res = await fetch('http://localhost:3001/api/v1/users/forgotpassword', {
             method: 'POST',
-            /*credentials: "include",*/
+            credentials: "include",
             headers: {
                 Accept: 'application/json',
                 "content-type": 'application/json'

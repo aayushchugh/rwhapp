@@ -1,3 +1,5 @@
+import {useContext} from 'react';
+import {UserContext} from '../contexts/UserContext';
 import Video from '../components/Video';
 import {
 	TextField,
@@ -11,6 +13,7 @@ import {
 
 
 const Home = () => {
+  const {user, setUser} = useContext(UserContext);
   return (
     <>
       <Video />
@@ -19,6 +22,7 @@ const Home = () => {
           <div className="form_title">
             <h2>RWH APP</h2>
           </div>
+          {!user ? (
           <div className="form_control">
           <Button
             type="submit"
@@ -45,6 +49,33 @@ const Home = () => {
             Register
           </Button>
           </div>
+          ) : (
+            <div className="form_control">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              size="large"
+              href="/dashboard"
+              margin="normal"
+              sx={{ mt: 2, mb: 1 }}
+              
+            >
+              Dashboard
+            </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              size="large"
+              href="#dologou"
+              margin="normal"
+              sx={{ mt: 2, mb: 1 }}
+              
+            >
+              Logout
+            </Button>
+            </div>)}
           
         </div>        
       </div>

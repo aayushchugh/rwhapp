@@ -16,10 +16,15 @@ const Header = () => {
 
   const handleLogout = async (e) => {
     e.preventDefault();
-    const res = await logout();
-    toast.success(res.message);
-    setUser(null);
-    history("/", { replace: true });
+    const res = logout().then(res => {
+      // if (!user) {
+      //   toast.error("Some error message");
+      // }
+      setUser(null)  
+      toast.success(res.message);  
+      history("/", { replace: true });
+    });
+    
   }
 
   return (

@@ -19,21 +19,13 @@ const App = () => {
   const [user, setUser] = useState(null);
   
   useEffect(() => {
-    try {
-      const res = getUser();
-
-      if(res.status !== "ok") {
-        toast.error(res.message);
-        return;
+    getUser().then(user => {
+      if (!user) {
+        toast.error("Some error message");
       }
-      
-      setUser(res.userID)
-
-    } catch (errror) {
-      toast.error(res.message);
-    }
-  		
-	}, []);
+      setUser(user)    
+    })
+  }, []);
 
   return (
       <Router>
