@@ -70,7 +70,7 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.clearCookie('token').json({
+    res.clearCookie('jwt').json({
         status: 'ok',
         success: true,
         message: 'User logged out successfully',
