@@ -1,5 +1,8 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export const UserContext = createContext({
-    user: {}, setUser: () => {}
+	user: {},
+	setUser: () => {},
+	isLoaded: false,
+	isLoggedIn: false,
 });

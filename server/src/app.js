@@ -1,7 +1,7 @@
 /* IMPORT DEPENDENCIES */
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import express from 'express';
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 /* LOAD MIDDLEWEAR */
-app.use(cors({origin: 'http://localhost:3000', credentials: true}));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan(':status :method :url'));
@@ -25,7 +25,7 @@ app.use('/api/v1/users', userRouter);
 mongoose.connect(process.env.MONGODB_URI);
 
 /* CONNNECT TO SERVER */
-const PORT = process.env.PORT || 1337; 
+const PORT = process.env.PORT || 1337;
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+	console.log(`listening on port ${PORT}`);
 });

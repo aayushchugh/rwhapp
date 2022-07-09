@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import {useEffect} from 'react';
+import { useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext';
 
 const Protected = ({ isLoggedIn, children }) => {
-const navigate  = useNavigate();
+	const navigate = useNavigate();
+	const userContext = useContext(UserContext);
 
-useEffect(() => {
-  if (!isLoggedIn) {
-  navigate('/')
-    }
-})
+	if (userContext.isLoaded && !userContext.isLoggedIn) {
+		navigate('/');
+	}
 
-    return children;
-   };
+	return children;
+};
 
 export default Protected;
